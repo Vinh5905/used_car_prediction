@@ -1,0 +1,8 @@
+# Docker gen data
+mysql
+postgresql
+minio
+
+# python cache
+__pycache__/
+*.pyc

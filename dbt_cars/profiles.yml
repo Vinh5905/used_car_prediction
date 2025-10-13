@@ -1,0 +1,43 @@
+dbt_cars:
+  outputs:
+    dev:
+      dbname: cars
+      host: "{{ env_var('DBT_POSTGRES_HOST') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT') | int }}"
+      schema: staging  # default schema for development
+      threads: 1
+      type: postgres
+      user: "{{ env_var('DBT_POSTGRES_USER') }}"
+    
+    raw:
+      dbname: cars
+      host: "{{ env_var('DBT_POSTGRES_HOST') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT') | int }}"
+      schema: raw
+      threads: 1
+      type: postgres
+      user: "{{ env_var('DBT_POSTGRES_USER') }}"
+    
+    staging:
+      dbname: cars
+      host: "{{ env_var('DBT_POSTGRES_HOST') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT') | int }}"
+      schema: staging
+      threads: 1
+      type: postgres
+      user: "{{ env_var('DBT_POSTGRES_USER') }}"
+    
+    marts:
+      dbname: cars
+      host: "{{ env_var('DBT_POSTGRES_HOST') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT') | int }}"
+      schema: marts
+      threads: 1
+      type: postgres
+      user: "{{ env_var('DBT_POSTGRES_USER') }}"
+
+  target: dev

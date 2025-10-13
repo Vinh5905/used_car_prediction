@@ -1,2 +1,13 @@
-numpy
 pandas
+sqlalchemy
+pymysql
+
+# dagster
+create-dagster
+dagster
+dagster-webserver
+dagster-postgres 
+
+# dbt
+dbt-core
+dbt-postgres
