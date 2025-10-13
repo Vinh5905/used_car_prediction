@@ -68,22 +68,31 @@ setup_dagster: # first time only
 
 start_dagster:
 	@echo "Starting Dagster with isolated DAGSTER_HOME..."
-	cd elt_pipeline && DAGSTER_HOME=$$(pwd)/.dagster dagster-webserver -w workspace.yml
+	export $$(grep -v '^#' .env | xargs) && cd elt_pipeline && DAGSTER_HOME=$$(pwd)/.dagster dagster-webserver -w workspace.yml
 
 dev_dagster: 
 	@echo "Starting Dagster DEV mode with isolated DAGSTER_HOME..."
-	cd elt_pipeline && DAGSTER_HOME=$$(pwd)/.dagster dagster dev
+	export $$(grep -v '^#' .env | xargs) && cd elt_pipeline && DAGSTER_HOME=$$(pwd)/.dagster dagster dev
 
 # Dbt setup and start
-run_dbt:
-	@echo "Running dbt models..."
-	export $$(grep -v '^#' .env | xargs) && \
-		cd dbt_cars && \
-		dbt run --profiles-dir ./ --project-dir ./
+# run_dbt:
+# 	@echo "Running dbt models..."
+# 	export $$(grep -v '^#' .env | xargs) && \
+# 		cd dbt_cars && \
+# 		dbt run --profiles-dir ./ --project-dir ./
 
-gen_docs_dbt:
-	@echo "Generating dbt documentation..."
-	export $$(grep -v '^#' .env | xargs) && \
-		cd dbt_cars && \
-		dbt docs generate --profiles-dir ./ --project-dir ./ && \
-		dbt docs serve --profiles-dir ./ --project-dir ./
+# gen_docs_dbt:
+# 	@echo "Generating dbt documentation..."
+# 	export $$(grep -v '^#' .env | xargs) && \
+# 		cd dbt_cars && \
+# 		dbt docs generate --profiles-dir ./ --project-dir ./ && \
+# 		dbt docs serve --profiles-dir ./ --project-dir ./
+
+# Dagster-dbt integration
+prepare_dbt:
+	@echo "Preparing dbt project for Dagster integration..."
+	cd elt_pipeline && dagster-dbt project prepare-and-package --components .
+
+# Combined ELT pipeline
+start_elt: setup_dagster prepare_dbt dev_dagster
+	@echo "ELT pipeline started with dbt integration"

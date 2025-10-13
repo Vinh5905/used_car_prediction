@@ -1,0 +1,5 @@
+type: dagster_dbt.DbtProjectComponent
+
+attributes:
+  project: '../../dbt_cars'
+  profiles_dir: '../../dbt_cars'

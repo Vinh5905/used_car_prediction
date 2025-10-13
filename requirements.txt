@@ -6,7 +6,8 @@ pymysql
 create-dagster
 dagster
 dagster-webserver
-dagster-postgres 
+dagster-postgres
+dagster-dbt
 
 # dbt
 dbt-core
