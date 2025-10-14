@@ -1,0 +1,25 @@
+[32m2025-10-14 07:59:07 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 76465d31-fae6-4f6f-8ed3-0b87846cce7a - 3776 - LOGS_CAPTURED - Started capturing logs in process (pid: 3776).
+[32m2025-10-14 07:59:07 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 76465d31-fae6-4f6f-8ed3-0b87846cce7a - 3776 - mysql_to_postgres_raw - STEP_START - Started execution of step "mysql_to_postgres_raw".
+[32m2025-10-14 07:59:07 +0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 76465d31-fae6-4f6f-8ed3-0b87846cce7a - mysql_to_postgres_raw - 🚀 Starting ingestion from MySQL → PostgreSQL...
+[32m2025-10-14 07:59:07 +0700[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 76465d31-fae6-4f6f-8ed3-0b87846cce7a - 3776 - mysql_to_postgres_raw - STEP_FAILURE - Execution of step "mysql_to_postgres_raw" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "mysql_to_postgres_raw"::
+
+TypeError: 'MySQLToPostgresConfig' object is not subscriptable
+
+Stack Trace:
+  File "/Users/hoangvinh/.pyenv/versions/3.10.6/envs/venv_IS217/lib/python3.10/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/Users/hoangvinh/.pyenv/versions/3.10.6/envs/venv_IS217/lib/python3.10/site-packages/dagster/_utils/__init__.py", line 392, in iterate_with_context
+    next_output = next(iterator)
+  File "/Users/hoangvinh/.pyenv/versions/3.10.6/envs/venv_IS217/lib/python3.10/site-packages/dagster/_core/execution/plan/compute_generator.py", line 137, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+  File "/Users/hoangvinh/.pyenv/versions/3.10.6/envs/venv_IS217/lib/python3.10/site-packages/dagster/_core/execution/plan/compute_generator.py", line 117, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+  File "/Users/hoangvinh/Library/CloudStorage/OneDrive-Personal/Workspace/IS217/elt_pipeline/src/elt_pipeline/defs/ingestion.py", line 34, in mysql_to_postgres_raw
+    with connect_mysql(config) as mysql_engine, connect_psql(config) as pg_engine:
+  File "/Users/hoangvinh/.pyenv/versions/3.10.6/lib/python3.10/contextlib.py", line 135, in __enter__
+    return next(self.gen)
+  File "/Users/hoangvinh/Library/CloudStorage/OneDrive-Personal/Workspace/IS217/elt_pipeline/src/elt_pipeline/resources/mysql_context_manager.py", line 7, in connect_mysql
+    f"mysql+pymysql://{config['user']}:{config['password']}"
+[0m

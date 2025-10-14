@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw # name for source sql
+    schema: raw
+    description: "Raw schema created by Dagster ingestion assets"
+    tables:
+      - name: cars_ingestion
+        description: "Data ingested from MySQL via Dagster asset"

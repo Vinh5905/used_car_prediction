@@ -1,0 +1,12 @@
+[32m2025-10-14 08:06:54 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - 4217 - LOGS_CAPTURED - Started capturing logs in process (pid: 4217).
+[32m2025-10-14 08:06:54 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - 4217 - mysql_to_postgres_raw - STEP_START - Started execution of step "mysql_to_postgres_raw".
+[32m2025-10-14 08:06:54 +0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - mysql_to_postgres_raw - 🚀 Starting ingestion from MySQL → PostgreSQL...
+[32m2025-10-14 08:06:54 +0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - mysql_to_postgres_raw - 📋 Tables to ingest: ['cars']
+[32m2025-10-14 08:06:54 +0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - mysql_to_postgres_raw - 🔄 Ingesting table: cars
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - mysql_to_postgres_raw - ✅ Done table: cars, rows=31872
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mINFO[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - mysql_to_postgres_raw - 🎉 Ingestion completed successfully.
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - 4217 - mysql_to_postgres_raw - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - mysql_to_postgres_raw - Writing file at: /Users/hoangvinh/OneDrive/Workspace/IS217/elt_pipeline/.dagster/storage/mysql_to_postgres_raw using PickledObjectFilesystemIOManager...
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - 4217 - mysql_to_postgres_raw - ASSET_MATERIALIZATION - Materialized value mysql_to_postgres_raw.
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - 4217 - mysql_to_postgres_raw - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2025-10-14 08:07:08 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 91569763-69b6-49b8-aa2b-8ce309a13942 - 4217 - mysql_to_postgres_raw - STEP_SUCCESS - Finished execution of step "mysql_to_postgres_raw" in 14.37s.
