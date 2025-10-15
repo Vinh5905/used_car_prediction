@@ -1,7 +1,0 @@
-[32m2025-10-13 14:46:04 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - 12934 - LOGS_CAPTURED - Started capturing logs in process (pid: 12934).
-[32m2025-10-13 14:46:04 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - 12934 - hello_asset - STEP_START - Started execution of step "hello_asset".
-[32m2025-10-13 14:46:04 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - 12934 - hello_asset - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-[32m2025-10-13 14:46:04 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - hello_asset - Writing file at: /Users/hoangvinh/OneDrive/Workspace/IS217/elt_pipeline/.dagster/storage/hello_asset using PickledObjectFilesystemIOManager...
-[32m2025-10-13 14:46:05 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - 12934 - hello_asset - ASSET_MATERIALIZATION - Materialized value hello_asset.
-[32m2025-10-13 14:46:05 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - 12934 - hello_asset - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-[32m2025-10-13 14:46:05 +0700[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - fcbe395b-066e-47e7-804f-887bbe858796 - 12934 - hello_asset - STEP_SUCCESS - Finished execution of step "hello_asset" in 297ms.
