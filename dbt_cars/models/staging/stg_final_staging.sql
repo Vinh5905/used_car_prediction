@@ -1,2 +1,7 @@
+{{ config(
+    materialized='table',
+    description='Bảng staging cuối cùng, dữ liệu sạch cho marts'
+) }}
+
 SELECT *
 FROM {{ ref('stg_final_handle_null') }}

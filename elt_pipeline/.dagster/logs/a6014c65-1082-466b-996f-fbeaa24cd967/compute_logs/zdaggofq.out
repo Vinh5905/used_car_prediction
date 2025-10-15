@@ -1,0 +1,21 @@
+Running with dbt=1.10.13
+Registered adapter: postgres=1.9.1
+Found 19 models, 1 source, 571 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 1 START sql table model staging.stg_parse_mileage ......................... [RUN]
+1 of 1 ERROR creating sql table model staging.stg_parse_mileage ................ [[31mERROR[0m in 0.34s]
+
+Finished running 1 table model in 0 hours 0 minutes and 0.85 seconds (0.85s).
+
+[31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+
+[31mFailure in model stg_parse_mileage (models/staging/stg_parse_mileage.sql)[0m
+  Database Error in model stg_parse_mileage (models/staging/stg_parse_mileage.sql)
+  invalid input syntax for type bigint: "2000,049"
+  compiled code at target/dbt_cars_dbt_assets-a6014c6-97f45f0/run/dbt_cars/models/staging/stg_parse_mileage.sql
+
+  compiled code at target/dbt_cars_dbt_assets-a6014c6-97f45f0/compiled/dbt_cars/models/staging/stg_parse_mileage.sql
+
+Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1

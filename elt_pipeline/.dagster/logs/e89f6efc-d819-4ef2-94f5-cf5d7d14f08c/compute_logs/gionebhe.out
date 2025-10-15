@@ -1,0 +1,20 @@
+Running with dbt=1.10.13
+Registered adapter: postgres=1.9.1
+Found 19 models, 1 source, 571 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 4 START sql table model staging.stg_final_parse ........................... [RUN]
+1 of 4 OK created sql table model staging.stg_final_parse ...................... [[32mSELECT 22921[0m in 0.62s]
+2 of 4 START sql table model staging.stg_handle_null_brand_model ............... [RUN]
+2 of 4 OK created sql table model staging.stg_handle_null_brand_model .......... [[32mSELECT 22921[0m in 0.68s]
+3 of 4 START sql table model staging.stg_final_handle_null ..................... [RUN]
+3 of 4 OK created sql table model staging.stg_final_handle_null ................ [[32mSELECT 22921[0m in 0.42s]
+4 of 4 START sql table model staging.stg_final_staging ......................... [RUN]
+4 of 4 OK created sql table model staging.stg_final_staging .................... [[32mSELECT 22921[0m in 0.94s]
+
+Finished running 4 table models in 0 hours 0 minutes and 3.16 seconds (3.16s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=4
