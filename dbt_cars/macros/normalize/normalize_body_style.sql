@@ -12,6 +12,6 @@
         WHEN {{ col }} IN ('truck') THEN 'Truck'
         WHEN {{ col }} IN ('wagon') THEN 'Wagon'
 
-        ELSE INITCAP({{ base }}) -- Viết hoa chữ cái đầu (giống style.capitalize())
+        ELSE INITCAP({{ col }}) -- Viết hoa chữ cái đầu (giống style.capitalize())
     END
 {% endmacro %}
