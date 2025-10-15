@@ -89,10 +89,14 @@ dev_dagster:
 # 		dbt docs serve --profiles-dir ./ --project-dir ./
 
 # Dagster-dbt integration
+dbt_parse:
+	@echo "Parsing dbt project..."
+	export $$(grep -v '^#' .env | xargs) && cd dbt_cars && dbt compile
+
 prepare_dbt:
 	@echo "Preparing dbt project for Dagster integration..."
 	cd elt_pipeline && dagster-dbt project prepare-and-package --components .
 
 # Combined ELT pipeline
-start_elt: setup_dagster prepare_dbt dev_dagster
+start_elt: dbt_parse prepare_dbt dev_dagster
 	@echo "ELT pipeline started with dbt integration"

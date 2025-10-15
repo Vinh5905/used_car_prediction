@@ -4,7 +4,7 @@
         WHEN LOWER(TRIM({{ col }})) IN ('null', 'none', 'nan', 'n/a') THEN NULL
         ELSE LOWER(
             TRIM(
-                regexp_replace({{ col }}, r'[\t\n\r]+', ' ')
+                regexp_replace({{ col }}, '[\t\n\r]+', ' ')
             )
         )
     END

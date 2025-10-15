@@ -17,7 +17,7 @@ custom_assets = load_assets_from_modules([
 
 defs = Definitions(
     assets=[
-        dbt_cars_dbt_assets
+        dbt_cars_dbt_assets,
     ] + custom_assets,
     schedules=schedules,
     resources={

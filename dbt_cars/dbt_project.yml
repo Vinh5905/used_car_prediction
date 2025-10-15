@@ -30,7 +30,96 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
-  dbt_cars:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+  dbt_cars: # Sử dụng tên project của bạn ở đây
+    # ===== Staging layer =====
+    staging:
+      # ---- Filter group ----
+      stg_filter_data_cols:
+        +meta:
+          dagster:
+            group: "staging_filter"
+
+      # ---- Parse group ----
+      stg_parse_price:
+        +meta:
+          dagster:
+            group: "staging_parse"
+      stg_parse_mileage:
+        +meta:
+          dagster:
+            group: "staging_parse"
+      stg_parse_date_posted:
+        +meta:
+          dagster:
+            group: "staging_parse"
+      stg_parse_engine:
+        +meta:
+          dagster:
+            group: "staging_parse"
+      stg_final_parse:
+        +meta:
+          dagster:
+            group: "staging_parse"
+
+      # ---- Normalize group ----
+      stg_normalize_base:
+        +meta:
+          dagster:
+            group: "staging_normalize"
+      stg_normalize_body_style:
+        +meta:
+          dagster:
+            group: "staging_normalize"
+      stg_normalize_color:
+        +meta:
+          dagster:
+            group: "staging_normalize"
+      stg_normalize_drivetrain:
+        +meta:
+          dagster:
+            group: "staging_normalize"
+      stg_final_normalize:
+        +meta:
+          dagster:
+            group: "staging_normalize"
+
+      # ---- Handle null group ----
+      stg_handle_null_brand_model:
+        +meta:
+          dagster:
+            group: "staging_handle_null"
+      stg_final_handle_null:
+        +meta:
+          dagster:
+            group: "staging_handle_null"
+
+      # Final output of staging (root of staging folder)
+      stg_final_staging:
+        +meta:
+          dagster:
+            group: "staging"
+
+    # ===== Marts layer =====
+    marts:
+      # Dimensions
+      dim_car_general:
+        +meta:
+          dagster:
+            group: "marts_dimensions"
+      dim_car_details:
+        +meta:
+          dagster:
+            group: "marts_dimensions"
+      dim_car_specs:
+        +meta:
+          dagster:
+            group: "marts_dimensions"
+      dim_date:
+        +meta:
+          dagster:
+            group: "marts_dimensions"
+      # Fact
+      fact_car_listing:
+        +meta:
+          dagster:
+            group: "marts_facts"

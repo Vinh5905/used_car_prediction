@@ -1,6 +1,5 @@
 {{ config(
     materialized='table',
-    alias='cars_parse_date',
     description='Tách date_posted thành day, month, year nhưng vẫn giữ date_posted.'
 ) }}
 

@@ -1,14 +1,12 @@
 {{ config(
     materialized='table',
-    alias='cars_filter_data_cols',
-    tags=['Data Warehouse', 'Staging'],
-    description='Bước 1: Loại bỏ xe mới và các cột không cần thiết từ raw.cars_ingestion.'
+    description='Loại bỏ xe mới và các cột không cần thiết từ raw.cars.'
 ) }}
 
 WITH filtered AS (
     SELECT
         *
-    FROM {{ source('raw', 'cars_ingestion') }}
+    FROM {{ source('raw', 'raw_cars') }}
     WHERE car_condition != 'Xe mới'
 )
 
@@ -19,9 +17,9 @@ SELECT
     year,
     price,
     mileage,
-    transmission,
-    fuel_type,
+    origin,
     body_style,
+    transmission,
     engine,
     exterior_color,
     interior_color,

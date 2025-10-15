@@ -5,5 +5,5 @@ sources:
     schema: raw
     description: "Raw schema created by Dagster ingestion assets"
     tables:
-      - name: cars_ingestion
+      - name: raw_cars
         description: "Data ingested from MySQL via Dagster asset"

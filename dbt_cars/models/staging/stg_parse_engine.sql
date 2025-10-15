@@ -1,6 +1,5 @@
 {{ config(
     materialized='table',
-    alias='cars_parse_engine',
     description='Parse loại động cơ (engine)'
 ) }}
 

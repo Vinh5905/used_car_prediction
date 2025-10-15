@@ -8,11 +8,10 @@
 
 {{ config(
     materialized='table',
-    alias='cars_normalize_drivetrain',
     description='Bước chuẩn hóa cột drivetrain'
 ) }}
 
 SELECT
-    {{ select_all_except('stg_normalize_base', ['drivetrain']) }},
+    {{ select_all_except('stg_normalize_color', ['drivetrain']) }},
     {{ normalize_drivetrain('drivetrain') }} AS drivetrain
 FROM {{ ref('stg_normalize_color') }}

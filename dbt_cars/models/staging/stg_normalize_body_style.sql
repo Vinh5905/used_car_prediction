@@ -1,6 +1,5 @@
 {{ config(
     materialized='table',
-    alias='cars_normalize_body_style',
     description='Bước chuẩn hóa body style'
 ) }}
 

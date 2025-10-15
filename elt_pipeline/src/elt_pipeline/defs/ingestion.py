@@ -9,7 +9,7 @@ from ..schemas.mysql_psql_config import MySQLToPostgresConfig
 @asset(
     group_name="ingestion",
     compute_kind="python",
-    key=AssetKey(["raw", "cars_ingestion"]),
+    key=AssetKey(["raw", "raw_cars"]),
     description="Ingest data from MySQL into PostgreSQL under the 'raw' schema.",
 )
 def mysql_to_postgres_raw(context, config: MySQLToPostgresConfig):
@@ -29,23 +29,24 @@ def mysql_to_postgres_raw(context, config: MySQLToPostgresConfig):
         context.log.info(f"📋 Tables to ingest: {tables}")
 
         for table in tables:
-            context.log.info(f"🔄 Ingesting table: {table}")
+            table_name = f'raw_{table.lower()}'
+            context.log.info(f"🔄 Ingesting table: {table_name}")
 
             # Đọc dữ liệu
             df = pd.read_sql_table(table_name=table, con=mysql_engine)
 
             # Ghi sang PostgreSQL
             df.to_sql(
-                name=table,
+                name=table_name,
                 con=pg_engine,
                 schema="raw",
                 if_exists="replace",
                 index=False,
             )
 
-            context.log.info(f"✅ Done table: {table}, rows={len(df)}")
+            context.log.info(f"✅ Done table: {table_name}, rows={len(df)}")
 
-            all_metadata[table] = MetadataValue.int(len(df))
+            all_metadata[table_name] = MetadataValue.int(len(df))
 
     context.log.info("🎉 Ingestion completed successfully.")
 

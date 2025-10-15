@@ -1,6 +1,5 @@
 {{ config(
     materialized='table',
-    alias='cars_parse_price',
     description='Parse giá tiền sang số VND từ bảng normalize_final'
 ) }}
 

@@ -1,6 +1,5 @@
 {{ config(
     materialized='table',
-    alias='cars_normalize_color',
     description='Bước chuẩn hóa màu nội thất và ngoại thất'
 ) }}
 

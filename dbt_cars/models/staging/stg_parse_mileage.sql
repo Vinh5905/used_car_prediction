@@ -1,6 +1,5 @@
 {{ config(
     materialized='table',
-    alias='cars_parse_mileage',
     description='Parse mileage sang số km'
 ) }}
 
