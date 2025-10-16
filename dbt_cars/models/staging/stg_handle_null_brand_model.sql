@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Parse dữ liệu cars và loại bỏ các dòng brand + model NULL'
 ) }}
 

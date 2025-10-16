@@ -7,7 +7,6 @@
 -- }
 
 {{ config(
-    materialized='table',
     description='Bước chuẩn hóa cột drivetrain'
 ) }}
 

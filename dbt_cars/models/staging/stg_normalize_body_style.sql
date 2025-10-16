@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Bước chuẩn hóa body style'
 ) }}
 

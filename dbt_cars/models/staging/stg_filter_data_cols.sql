@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Loại bỏ xe mới và các cột không cần thiết từ raw.cars.'
 ) }}
 

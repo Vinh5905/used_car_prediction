@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Tách date_posted thành day, month, year nhưng vẫn giữ date_posted.'
 ) }}
 

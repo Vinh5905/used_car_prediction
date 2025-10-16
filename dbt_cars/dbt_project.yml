@@ -30,9 +30,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+  +schema: false  # Prevent schema name concatenation
   dbt_cars: # Sử dụng tên project của bạn ở đây
     # ===== Staging layer =====
     staging:
+      +schema: staging
       # ---- Filter group ----
       stg_filter_data_cols:
         +meta:
@@ -101,6 +103,8 @@ models:
 
     # ===== Marts layer =====
     marts:
+      +schema: marts # -> psql in marts schema
+      +materialized: table # -> default to table materialization
       # Dimensions
       dim_car_general:
         +meta:

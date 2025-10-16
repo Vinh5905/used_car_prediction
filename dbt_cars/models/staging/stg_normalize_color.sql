@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Bước chuẩn hóa màu nội thất và ngoại thất'
 ) }}
 

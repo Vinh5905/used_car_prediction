@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Parse giá tiền sang số VND từ bảng normalize_final'
 ) }}
 

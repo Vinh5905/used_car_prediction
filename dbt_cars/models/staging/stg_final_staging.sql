@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Bảng staging cuối cùng, dữ liệu sạch cho marts'
 ) }}
 

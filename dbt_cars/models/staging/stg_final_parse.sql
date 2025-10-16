@@ -1,5 +1,4 @@
 {{ config(
-    materialized='table',
     description='Bảng parse cuối cùng toàn bảng cars'
 ) }}
 
