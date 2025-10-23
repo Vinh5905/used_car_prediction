@@ -12,3 +12,8 @@ dagster-dbt
 # dbt
 dbt-core
 dbt-postgres
+
+# atoti
+jupyterlab
+atoti[jupyterlab]
+atoti[jdbc]

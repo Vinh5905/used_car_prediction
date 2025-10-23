@@ -100,3 +100,9 @@ prepare_dbt:
 # Combined ELT pipeline
 start_elt: dbt_parse prepare_dbt dev_dagster
 	@echo "ELT pipeline started with dbt integration"
+
+# reset_kylin_home:
+# 	docker run -d --name kylin_temp apachekylin/apache-kylin-standalone:5.0.2-GA
+# 	docker cp kylin_temp:/home/kylin/apache-kylin-5.0.2-bin ./kylin_home
+# 	docker rm -f kylin_temp
+# 	@echo "Đã reset kylin_home từ image gốc."

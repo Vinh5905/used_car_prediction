@@ -3,6 +3,9 @@ mysql
 postgresql
 minio
 
-# python cache
+# Python cache
 __pycache__/
 *.pyc
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
