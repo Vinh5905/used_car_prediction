@@ -2,6 +2,7 @@
     {% set conditions = [] %}
     {% for c in cols %}
         {% do conditions.append(c ~ ' IS NOT NULL') %}
+        {% do conditions.append(c ~ " != ''") %}
     {% endfor %}
-    ({{ conditions | join(' OR ') }})
+    ({{ conditions | join(' AND ') }})
 {% endmacro %}
