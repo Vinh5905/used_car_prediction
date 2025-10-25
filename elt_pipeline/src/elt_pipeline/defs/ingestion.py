@@ -21,7 +21,7 @@ def mysql_to_postgres_raw(context, config: MySQLToPostgresConfig):
         # Đảm bảo schema "raw" tồn tại
         with pg_engine.connect() as conn:
             conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw"))
-            conn.commit()
+            conn.commit() # When use .connect()
 
         # Lấy danh sách bảng MySQL
         insp = inspect(mysql_engine)
@@ -34,13 +34,18 @@ def mysql_to_postgres_raw(context, config: MySQLToPostgresConfig):
 
             # Đọc dữ liệu
             df = pd.read_sql_table(table_name=table, con=mysql_engine)
+            
+            # Trước khi to_sql
+            with pg_engine.begin() as conn:
+                conn.execute(text(f'TRUNCATE TABLE raw.{table_name}'))
+                # No need commit because using .begin()
 
             # Ghi sang PostgreSQL
             df.to_sql(
                 name=table_name,
                 con=pg_engine,
                 schema="raw",
-                if_exists="replace",
+                if_exists="append", # không replace nữa
                 index=False,
             )
 
