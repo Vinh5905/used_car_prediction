@@ -9,10 +9,10 @@ from dagster_dbt import DbtCliResource
 from .dbt_assets import dbt_cars_dbt_assets
 from .project import dbt_cars_project
 from .schedules import schedules
-from .defs import ingestion
+from .defs import ingestion, cube
 
 custom_assets = load_assets_from_modules([
-    ingestion
+    ingestion, cube
 ])
 
 defs = Definitions(

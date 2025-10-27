@@ -75,18 +75,18 @@ dev_dagster:
 	export $$(grep -v '^#' .env | xargs) && cd elt_pipeline && DAGSTER_HOME=$$(pwd)/.dagster dagster dev
 
 # Dbt setup and start
-# run_dbt:
-# 	@echo "Running dbt models..."
-# 	export $$(grep -v '^#' .env | xargs) && \
-# 		cd dbt_cars && \
-# 		dbt run --profiles-dir ./ --project-dir ./
+run_dbt:
+	@echo "Running dbt models..."
+	export $$(grep -v '^#' .env | xargs) && \
+		cd dbt_cars && \
+		dbt run --profiles-dir ./ --project-dir ./
 
-# gen_docs_dbt:
-# 	@echo "Generating dbt documentation..."
-# 	export $$(grep -v '^#' .env | xargs) && \
-# 		cd dbt_cars && \
-# 		dbt docs generate --profiles-dir ./ --project-dir ./ && \
-# 		dbt docs serve --profiles-dir ./ --project-dir ./
+gen_docs_dbt:
+	@echo "Generating dbt documentation..."
+	export $$(grep -v '^#' .env | xargs) && \
+		cd dbt_cars && \
+		dbt docs generate --profiles-dir ./ --project-dir ./ && \
+		dbt docs serve --profiles-dir ./ --project-dir ./
 
 # Dagster-dbt integration
 dbt_parse:
