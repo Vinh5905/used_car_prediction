@@ -6,15 +6,17 @@
 WITH source AS (
     SELECT DISTINCT
         year,
-        origin
+        origin,
+        mileage_category
     FROM {{ ref('stg_final_staging') }}
 ),
 
 final AS (
     SELECT
-        ROW_NUMBER() OVER (ORDER BY year, origin) as car_details_id,
+        ROW_NUMBER() OVER (ORDER BY year, origin, mileage_category) as car_details_id,
         year,
-        origin
+        origin,
+        mileage_category
     FROM source
 )
 

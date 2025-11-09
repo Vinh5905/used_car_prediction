@@ -94,6 +94,16 @@ models:
         +meta:
           dagster:
             group: "staging_handle_null"
+      
+      # ---- Enrich group ----
+      stg_enrich_mileage:
+        +meta:
+          dagster:
+            group: "staging_enrich"
+      stg_final_enrich:
+        +meta:
+          dagster:
+            group: "staging_enrich"
 
       # Final output of staging (root of staging folder)
       stg_final_staging:

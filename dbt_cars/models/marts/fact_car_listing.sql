@@ -26,6 +26,7 @@ final AS (
     LEFT JOIN {{ ref('dim_car_details') }} cd
         ON s.year = cd.year 
         AND s.origin = cd.origin
+        AND s.mileage_category = cd.mileage_category
     LEFT JOIN {{ ref('dim_car_specs') }} cs
         ON s.transmission = cs.transmission 
         AND s.engine = cs.engine 
